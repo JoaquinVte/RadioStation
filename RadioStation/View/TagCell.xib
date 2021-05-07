@@ -16,9 +16,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-Cn-bYP">
-                        <rect key="frame" x="57" y="12" width="52" height="21"/>
+                        <rect key="frame" x="57" y="12" width="337" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m93-Lz-fpF">
@@ -27,7 +27,7 @@
                             <constraint firstAttribute="width" constant="20" id="kNl-NR-jav"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -37,6 +37,7 @@
                     <constraint firstAttribute="bottom" secondItem="VFg-Cn-bYP" secondAttribute="bottom" constant="11" id="EQd-5c-ZNe"/>
                     <constraint firstItem="VFg-Cn-bYP" firstAttribute="top" secondItem="uF0-J3-kpF" secondAttribute="top" constant="12" id="a4J-fl-1Fz"/>
                     <constraint firstItem="VFg-Cn-bYP" firstAttribute="leading" secondItem="m93-Lz-fpF" secondAttribute="trailing" constant="17" id="bn6-ug-vmu"/>
+                    <constraint firstAttribute="trailing" secondItem="VFg-Cn-bYP" secondAttribute="trailing" constant="20" symbolic="YES" id="f7u-Rq-akG"/>
                     <constraint firstItem="m93-Lz-fpF" firstAttribute="top" secondItem="uF0-J3-kpF" secondAttribute="top" constant="10" id="iDX-p3-HJe"/>
                     <constraint firstAttribute="bottom" secondItem="m93-Lz-fpF" secondAttribute="bottom" constant="10" id="vOv-Dc-ffM"/>
                 </constraints>

@@ -17,17 +17,14 @@ class TagsViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "TagCell", bundle:nil), forCellReuseIdentifier:"TagCell")
         
-//        let width = UIScreen.main.bounds.size.width
-//        let height = UIScreen.main.bounds.size.height
+        let width = tableView.frame.size.width
+        let height = tableView.frame.size.height
         
-        let imgView = UIImageView(frame:tableView.frame)
-        //let imgView = UIImageView(frame: CGRect(x: 0,y: 0,width: width,height: height))
+        let imgView = UIImageView(frame: CGRect(x: 0,y: 0,width: width,height: height))
         let img = UIImage.init(named: "bg")
                 
         imgView.image = img
-        imgView.contentMode = UIView.ContentMode.scaleAspectFill
-        
-        
+        imgView.contentMode = UIView.ContentMode.scaleAspectFill       
         
         tableView.backgroundView = imgView
         
@@ -54,7 +51,12 @@ extension TagsViewController{
         let cell = tableView.dequeueReusableCell( withIdentifier: "TagCell", for: indexPath) as! TagCell
                  
         cell.setTitle(title: tempTags[indexPath.row])
-        cell.backgroundColor = UIColor.clear
+        
+        if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.clear
+        } else {
+            cell.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        }
         
         return cell
     }

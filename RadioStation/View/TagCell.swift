@@ -24,5 +24,6 @@ class TagCell: UITableViewCell {
 
     func setTitle(title : String)  {
         lblTitle.text=title
+        lblInitial.text = String(title.first ?? " ")
     }
 }
