@@ -11,10 +11,10 @@ class TagsViewController: UITableViewController {
     
 //    var tempTags : [String] = ["Jazz","Blues","Classical","Country"]
     var tempTags : [String] = []
+    var tagSelected : String? = nil
     
     func fillTags(tags : [String])->Void {
         for tag in tags {
-            print(tag)
             tempTags.append(tag)
         }
         DispatchQueue.main.async {
@@ -42,7 +42,23 @@ class TagsViewController: UITableViewController {
         tableView.backgroundView = imgView
         
     }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showStationsForTag"{
+            let svc = segue.destination as! StationsViewController
+            svc.tagSelected = tagSelected
+        }
+    }
 }
+
+
+
+
 
 //  MARK: Table view delegate
 extension TagsViewController{
@@ -50,6 +66,9 @@ extension TagsViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
       
         tableView.deselectRow(at: indexPath,animated:true);
+        
+        tagSelected = tempTags[indexPath.row]
+        performSegue(withIdentifier: "showStationsForTag", sender: self)
         
     }
     
