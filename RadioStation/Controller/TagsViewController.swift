@@ -9,11 +9,24 @@ import UIKit
 
 class TagsViewController: UITableViewController {
     
-    var tempTags : [String] = ["Jazz","Blues","Classical","Country"]
+//    var tempTags : [String] = ["Jazz","Blues","Classical","Country"]
+    var tempTags : [String] = []
+    
+    func fillTags(tags : [String])->Void {
+        for tag in tags {
+            print(tag)
+            tempTags.append(tag)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        RadioAPI.getTags(onComplete: fillTags)
         
         tableView.register(UINib(nibName: "TagCell", bundle:nil), forCellReuseIdentifier:"TagCell")
         

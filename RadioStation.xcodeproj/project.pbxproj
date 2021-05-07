@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C23D1D326453B3E0028A5F9 /* RadioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23D1D226453B3E0028A5F9 /* RadioAPI.swift */; };
 		1CB6A23026448B340044D405 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6A22F26448B340044D405 /* TagCell.xib */; };
 		1CB6A23326448C0B0044D405 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6A23226448C0B0044D405 /* TagCell.swift */; };
 		1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDC62DF264467BE00045886 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C23D1D226453B3E0028A5F9 /* RadioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioAPI.swift; sourceTree = "<group>"; };
 		1CB6A22F26448B340044D405 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		1CB6A23226448C0B0044D405 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		1CDC62DC264467BE00045886 /* RadioStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 		1CDC62F82644683300045886 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C23D1D226453B3E0028A5F9 /* RadioAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				1CB6A23326448C0B0044D405 /* TagCell.swift in Sources */,
 				1CDC62E4264467BE00045886 /* TagsViewController.swift in Sources */,
 				1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */,
+				1C23D1D326453B3E0028A5F9 /* RadioAPI.swift in Sources */,
 				1CDC62E2264467BE00045886 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
