@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,12 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-Cn-bYP">
-                        <rect key="frame" x="57" y="12" width="337" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m93-Lz-fpF">
                         <rect key="frame" x="20" y="10" width="20" height="24"/>
                         <constraints>
@@ -30,19 +25,36 @@
                         <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pGo-2R-GBI">
+                        <rect key="frame" x="64" y="9" width="330" height="26.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-Cn-bYP">
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sF2-TG-8q3">
+                                <rect key="frame" x="278" y="0.0" width="52" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="pGo-2R-GBI" firstAttribute="centerY" secondItem="uF0-J3-kpF" secondAttribute="centerY" id="3ew-t4-tSV"/>
                     <constraint firstItem="m93-Lz-fpF" firstAttribute="leading" secondItem="uF0-J3-kpF" secondAttribute="leading" constant="20" symbolic="YES" id="Ax3-mU-3uG"/>
-                    <constraint firstAttribute="bottom" secondItem="VFg-Cn-bYP" secondAttribute="bottom" constant="11" id="EQd-5c-ZNe"/>
-                    <constraint firstItem="VFg-Cn-bYP" firstAttribute="top" secondItem="uF0-J3-kpF" secondAttribute="top" constant="12" id="a4J-fl-1Fz"/>
-                    <constraint firstItem="VFg-Cn-bYP" firstAttribute="leading" secondItem="m93-Lz-fpF" secondAttribute="trailing" constant="17" id="bn6-ug-vmu"/>
-                    <constraint firstAttribute="trailing" secondItem="VFg-Cn-bYP" secondAttribute="trailing" constant="20" symbolic="YES" id="f7u-Rq-akG"/>
+                    <constraint firstAttribute="trailing" secondItem="pGo-2R-GBI" secondAttribute="trailing" constant="20" symbolic="YES" id="RuD-Zu-7mS"/>
                     <constraint firstItem="m93-Lz-fpF" firstAttribute="top" secondItem="uF0-J3-kpF" secondAttribute="top" constant="10" id="iDX-p3-HJe"/>
+                    <constraint firstItem="pGo-2R-GBI" firstAttribute="leading" secondItem="m93-Lz-fpF" secondAttribute="trailing" constant="24" id="qZN-ai-Ziz"/>
                     <constraint firstAttribute="bottom" secondItem="m93-Lz-fpF" secondAttribute="bottom" constant="10" id="vOv-Dc-ffM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="lblCantidad" destination="sF2-TG-8q3" id="vdS-cc-h1g"/>
                 <outlet property="lblInitial" destination="m93-Lz-fpF" id="yMx-FS-si2"/>
                 <outlet property="lblTitle" destination="VFg-Cn-bYP" id="zS5-I3-lob"/>
             </connections>

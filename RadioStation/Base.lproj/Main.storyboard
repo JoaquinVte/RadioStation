@@ -60,6 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="QtA-2p-AUH"/>
                     <connections>
+                        <outlet property="niStations" destination="QtA-2p-AUH" id="SDz-HU-gw3"/>
                         <outlet property="tableViewStations" destination="NNY-U4-Fw6" id="kVn-xg-26j"/>
                     </connections>
                 </viewController>

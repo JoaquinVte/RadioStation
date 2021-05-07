@@ -10,10 +10,10 @@ import UIKit
 class TagsViewController: UITableViewController {
     
 //    var tempTags : [String] = ["Jazz","Blues","Classical","Country"]
-    var tempTags : [String] = []
-    var tagSelected : String? = nil
+    var tempTags : [Tag] = []
+    var tagSelected : Tag? = nil
     
-    func fillTags(tags : [String])->Void {
+    func fillTags(tags : [Tag])->Void {
         for tag in tags {
             tempTags.append(tag)
         }
@@ -68,6 +68,7 @@ extension TagsViewController{
         tableView.deselectRow(at: indexPath,animated:true);
         
         tagSelected = tempTags[indexPath.row]
+        
         performSegue(withIdentifier: "showStationsForTag", sender: self)
         
     }
@@ -82,7 +83,7 @@ extension TagsViewController{
         // Fetch a cell of the appropriate type.
         let cell = tableView.dequeueReusableCell( withIdentifier: "TagCell", for: indexPath) as! TagCell
                  
-        cell.setTitle(title: tempTags[indexPath.row])
+        cell.setTag(tag: tempTags[indexPath.row])
         
         if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor.clear

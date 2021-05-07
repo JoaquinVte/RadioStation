@@ -10,7 +10,7 @@ import UIKit
 class StationsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    var tagSelected : String!
+    var tagSelected : Tag?
     
     var tempStations : [String] = []
     
@@ -24,13 +24,16 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     @IBOutlet weak var tableViewStations: UITableView!
+    @IBOutlet weak var niStations: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        RadioAPI.getStationsByTag(tag: tagSelected, onComplete: fillStations)
+        niStations.title = tagSelected?.name ?? "desconocido"
+        
+        RadioAPI.getStationsByTag(tagName: niStations.title!, onComplete: fillStations)
         
         tableViewStations.register(UINib(nibName: "StationCell", bundle:nil), forCellReuseIdentifier:"StationCell")
         

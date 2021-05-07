@@ -12,9 +12,9 @@ enum RadioAPI {
     static let Format = "json"
     
     static let TagsURL = "\(BaseURL)\(Format)/tags"
-    static let StationsByTagExactURL = "\(BaseURL)\(Format)/stations/bytagexact/"
+    static let StationsByTagURL = "\(BaseURL)\(Format)/stations/bytag/"
     
-    static func getTags(onComplete: @escaping (([String])->Void)){
+    static func getTags(onComplete: @escaping (([Tag])->Void)){
         guard let url = URL(string: TagsURL) else {
             return
         }
@@ -22,26 +22,19 @@ enum RadioAPI {
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             guard let data = data else { return }
             do {
-                guard let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [Any] else { return }
-                
-                guard let jsonArray = jsonResponse as? [[String: Any]] else { return }
-                
-                var tags = [String]()
-                for object in jsonArray {
-                    guard let name = object["name"] as? String else { return }
-                    tags.append(name)
-                }
+                guard let tags = try? JSONDecoder().decode([Tag].self, from: data) else { return }
                 onComplete(tags)
             } catch let error {
                 print(error)
             }
         }.resume()
     }
-    static func getStationsByTag(tag: String, onComplete: @escaping (([String])->Void)){
+    
+    static func getStationsByTag(tagName: String, onComplete: @escaping (([String])->Void)){
         
         //print(StationsByTagExactURL + tag)
         
-        guard let url = URL(string: StationsByTagExactURL + tag) else {
+        guard let url = URL(string: (StationsByTagURL + tagName).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed )!) else {
             return
         }
         
@@ -64,4 +57,9 @@ enum RadioAPI {
         }.resume()
     }
     
+}
+
+struct Tag : Decodable {
+    let name: String
+    let stationcount: Int
 }

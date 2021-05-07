@@ -11,6 +11,7 @@ class TagCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblInitial: UILabel!
+    @IBOutlet weak var lblCantidad: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,8 +23,10 @@ class TagCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setTitle(title : String)  {
-        lblTitle.text=title
-        lblInitial.text = String(title.first ?? " ")
+    func setTag(tag : Tag)  {
+        // let newString = aString.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
+        lblTitle.text=tag.name
+        lblInitial.text = String(Array(tag.name)[0]).uppercased()
+        lblCantidad.text = "Nº Estaciones: \(tag.stationcount)"
     }
 }
