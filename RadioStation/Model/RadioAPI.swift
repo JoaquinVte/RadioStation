@@ -21,16 +21,14 @@ enum RadioAPI {
         
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             guard let data = data else { return }
-            do {
-                guard let tags = try? JSONDecoder().decode([Tag].self, from: data) else { return }
-                onComplete(tags)
-            } catch let error {
-                print(error)
-            }
+            
+            guard let tags = try? JSONDecoder().decode([Tag].self, from: data) else { return }
+            onComplete(tags)
+            
         }.resume()
     }
     
-    static func getStationsByTag(tagName: String, onComplete: @escaping (([String])->Void)){
+    static func getStationsByTag(tagName: String, onComplete: @escaping (([Station])->Void)){
         
         //print(StationsByTagExactURL + tag)
         
@@ -40,20 +38,10 @@ enum RadioAPI {
         
         URLSession.shared.dataTask(with: url) { (data,response,error) in
             guard let data = data else { return }
-            do {
-                guard let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [Any] else { return }
-                
-                guard let jsonArray = jsonResponse as? [[String: Any]] else { return }
-                
-                var stations = [String]()
-                for object in jsonArray {
-                    guard let name = object["name"] as? String else { return }
-                    stations.append(name)
-                }
-                onComplete(stations)
-            } catch let error {
-                print(error)
-            }
+            
+            guard let stations = try? JSONDecoder().decode([Station].self, from: data) else {return}
+            onComplete(stations)
+            
         }.resume()
     }
     
@@ -62,4 +50,10 @@ enum RadioAPI {
 struct Tag : Decodable {
     let name: String
     let stationcount: Int
+}
+
+struct Station : Decodable {
+    let name: String
+    let url_resolved: String
+    let favicon: String
 }

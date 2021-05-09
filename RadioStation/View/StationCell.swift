@@ -11,6 +11,8 @@ class StationCell: UITableViewCell {
 
     @IBOutlet weak var lblStation: UILabel!
     
+    @IBOutlet weak var imageStation: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,8 +24,8 @@ class StationCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setStationName(name:String){
-        lblStation.text=name
+    func setStation(station:Station){
+        lblStation.text=station.name
     }
 
 }

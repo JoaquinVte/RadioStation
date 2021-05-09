@@ -12,9 +12,9 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var tagSelected : Tag?
     
-    var tempStations : [String] = []
+    var tempStations : [Station] = []
     
-    func fillStations(stations : [String])->Void {
+    func fillStations(stations : [Station])->Void {
         for station in stations {
             tempStations.append(station)
         }
@@ -60,7 +60,7 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
         // Fetch a cell of the appropriate type.
         let cell = tableView.dequeueReusableCell( withIdentifier: "StationCell", for: indexPath) as! StationCell
                  
-        cell.setStationName(name: tempStations[indexPath.row])
+        cell.setStation(station: tempStations[indexPath.row])
         
         cell.backgroundColor = UIColor.clear
         
@@ -70,16 +70,30 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return 100
     }
-
-    /*
+    
+    //  MARK: Table view delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        tableView.deselectRow(at: indexPath,animated:true);
+         
+        performSegue(withIdentifier: "showPlayer", sender: tempStations[indexPath.row])
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showPlayer" , let playerVC = segue.destination as? RadioPlayerViewController {
+            guard let selectedStation = sender as? Station else { return }
+            playerVC.station = selectedStation
+        }
     }
-    */
+
 
 }
 
