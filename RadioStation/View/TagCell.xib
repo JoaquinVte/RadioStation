@@ -28,20 +28,33 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pGo-2R-GBI">
                         <rect key="frame" x="64" y="9" width="330" height="26.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-Cn-bYP">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sF2-TG-8q3">
-                                <rect key="frame" x="278" y="0.0" width="52" height="26.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-8x-inW">
+                                <rect key="frame" x="0.0" y="0.0" width="330" height="26.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p4V-ZB-PSZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="26.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-Cn-bYP">
+                                                <rect key="frame" x="0.0" y="0.0" width="153" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sF2-TG-8q3">
+                                                <rect key="frame" x="161" y="0.0" width="169" height="26.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dnW-8x-inW" secondAttribute="trailing" id="act-sy-Hms"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -51,6 +64,7 @@
                     <constraint firstAttribute="trailing" secondItem="pGo-2R-GBI" secondAttribute="trailing" constant="20" symbolic="YES" id="RuD-Zu-7mS"/>
                     <constraint firstItem="m93-Lz-fpF" firstAttribute="top" secondItem="uF0-J3-kpF" secondAttribute="top" constant="10" id="iDX-p3-HJe"/>
                     <constraint firstItem="pGo-2R-GBI" firstAttribute="leading" secondItem="m93-Lz-fpF" secondAttribute="trailing" constant="24" id="qZN-ai-Ziz"/>
+                    <constraint firstItem="dnW-8x-inW" firstAttribute="leading" secondItem="m93-Lz-fpF" secondAttribute="trailing" constant="24" id="sya-4t-ajc"/>
                     <constraint firstAttribute="bottom" secondItem="m93-Lz-fpF" secondAttribute="bottom" constant="10" id="vOv-Dc-ffM"/>
                 </constraints>
             </tableViewCellContentView>

@@ -144,10 +144,14 @@ extension RadioPlayerViewController{
     }
     func updateFavourteUI(for state: FavState){
         switch state {
-        case .favourite:
-            favButton.setBackgroundImage(UIImage(named: "fav-del"), for: .normal)
+        case .favourite:           
+            UIView.transition(with: favButton, duration: 0.5, options: [.transitionFlipFromLeft], animations: {
+                self.favButton.setBackgroundImage(UIImage(named: "fav-del"), for: .normal)
+            }, completion: nil)
         case .notFavourite:
-            favButton.setBackgroundImage(UIImage(named: "fav-add"), for: .normal)
+            UIView.transition(with: favButton, duration: 0.5, options: [.transitionFlipFromRight], animations: {
+                self.favButton.setBackgroundImage(UIImage(named: "fav-add"), for: .normal)
+            }, completion: nil)
         }
     }
     func addToFavourites(){
