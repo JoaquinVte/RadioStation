@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import CoreData
 
 class RadioPlayerViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class RadioPlayerViewController: UIViewController {
     @IBOutlet weak var niStation: UINavigationItem!
     
     var station : Station!
+    var isFavourite : FavState!
     
     lazy var player: AVPlayer = {
         initAudioSession()
@@ -29,8 +31,34 @@ class RadioPlayerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       setupView()
+        
+    }
+    
+    func setupView(){
+        
         niStation.title = station.name
         imageStation.imageFromURL(url: station?.favicon ?? "", defaultImage: "radio-station")
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StationEntity")
+        let namePredicate = NSPredicate(format: "name == %@", station.name)
+        let isFavPredicate = NSPredicate(format: "isFavourite == %@", NSNumber(booleanLiteral: true))
+        let compoundPredicate = NSCompoundPredicate(type: .and, subpredicates: [namePredicate,isFavPredicate])
+        fetchRequest.predicate = compoundPredicate
+        
+        do{
+            let count = try context.count(for: fetchRequest)
+            if count == 1 {
+                updateFavourteUI(for: .favourite)
+                self.isFavourite = .favourite
+            } else {
+                self.isFavourite = .notFavourite
+            }
+        } catch let error {
+            print(error)
+        }
         
     }
     
@@ -47,6 +75,13 @@ class RadioPlayerViewController: UIViewController {
     }
     
     @IBAction func favButtonPressed(_ sender: UIButton) {
+        switch isFavourite {
+        case .favourite:
+            removeFromFavourites()
+        default :
+            addToFavourites()
+        }
+
     }
     
     /*
@@ -107,8 +142,55 @@ extension RadioPlayerViewController{
             playStopButton.setBackgroundImage(UIImage(named: "pause-button"), for: .normal)
         }
     }
+    func updateFavourteUI(for state: FavState){
+        switch state {
+        case .favourite:
+            favButton.setBackgroundImage(UIImage(named: "fav-del"), for: .normal)
+        case .notFavourite:
+            favButton.setBackgroundImage(UIImage(named: "fav-add"), for: .normal)
+        }
+    }
+    func addToFavourites(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "StationEntity", in: context)!
+        let stationRecord = NSManagedObject(entity: entity, insertInto: context)
+        
+        stationRecord.setValue(self.station.name, forKey: "name")
+        stationRecord.setValue(self.station.favicon, forKey: "imageURL")
+        stationRecord.setValue(self.station.url_resolved, forKey: "streamURL")
+        stationRecord.setValue(true, forKey: "isFavourite")
+        
+        appDelegate.saveContext()
+        updateFavourteUI(for: .favourite)
+        self.isFavourite = .favourite
+    }
+    func removeFromFavourites(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "StationEntity")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", station.name)
+        fetchRequest.fetchLimit = 1
+        
+        do{
+            let record = try context.fetch(fetchRequest)
+            record.first?.setValue(NSNumber(booleanLiteral: false), forKey: "isFavourite")
+            
+            appDelegate.saveContext()
+            
+            self.isFavourite = .notFavourite
+            updateFavourteUI(for: .notFavourite)
+        } catch let error {
+            print(error)
+        }
+    }
 }
 
 enum PlayerState {
     case playing, paused
+}
+enum FavState {
+    case favourite, notFavourite
 }

@@ -13,6 +13,7 @@
 		1C350D972645EE65009892B6 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C350D962645EE65009892B6 /* StationCell.swift */; };
 		1C4A1B7E264715E60067CAC3 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A1B7D264715E60067CAC3 /* RadioPlayerViewController.swift */; };
 		1C4A1B812647DD280067CAC3 /* UIImageView+UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A1B802647DD280067CAC3 /* UIImageView+UrlImage.swift */; };
+		1C4A1B852647F0190067CAC3 /* RadioStation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A1B832647F0190067CAC3 /* RadioStation.xcdatamodeld */; };
 		1CB6A23026448B340044D405 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6A22F26448B340044D405 /* TagCell.xib */; };
 		1CB6A23326448C0B0044D405 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6A23226448C0B0044D405 /* TagCell.swift */; };
 		1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDC62DF264467BE00045886 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		1C350D962645EE65009892B6 /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		1C4A1B7D264715E60067CAC3 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
 		1C4A1B802647DD280067CAC3 /* UIImageView+UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+UrlImage.swift"; sourceTree = "<group>"; };
+		1C4A1B842647F0190067CAC3 /* RadioStation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RadioStation.xcdatamodel; sourceTree = "<group>"; };
 		1CB6A22F26448B340044D405 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		1CB6A23226448C0B0044D405 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		1CDC62DC264467BE00045886 /* RadioStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				1C23D1D226453B3E0028A5F9 /* RadioAPI.swift */,
+				1C4A1B832647F0190067CAC3 /* RadioStation.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				1C350D912645B44A009892B6 /* StationsViewController.swift in Sources */,
 				1C350D972645EE65009892B6 /* StationCell.swift in Sources */,
 				1CDC62E4264467BE00045886 /* TagsViewController.swift in Sources */,
+				1C4A1B852647F0190067CAC3 /* RadioStation.xcdatamodeld in Sources */,
 				1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */,
 				1C4A1B812647DD280067CAC3 /* UIImageView+UrlImage.swift in Sources */,
 				1C4A1B7E264715E60067CAC3 /* RadioPlayerViewController.swift in Sources */,
@@ -411,6 +415,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1C4A1B832647F0190067CAC3 /* RadioStation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1C4A1B842647F0190067CAC3 /* RadioStation.xcdatamodel */,
+			);
+			currentVersion = 1C4A1B842647F0190067CAC3 /* RadioStation.xcdatamodel */;
+			path = RadioStation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1CDC62D4264467BD00045886 /* Project object */;
 }
