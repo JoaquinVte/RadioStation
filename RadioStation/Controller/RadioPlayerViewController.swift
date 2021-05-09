@@ -24,6 +24,7 @@ class RadioPlayerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         niStation.title = station.name
+        imageStation.imageFromURL(url: station?.favicon ?? "", defaultImage: "radio-station")
         
     }
     

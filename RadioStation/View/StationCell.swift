@@ -24,8 +24,9 @@ class StationCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setStation(station:Station){
+    func setStation(station: Station){
         lblStation.text=station.name
+        imageStation.imageFromURL(url: station.favicon , defaultImage: "radio-station")
     }
 
 }

@@ -12,6 +12,7 @@
 		1C350D942645ED97009892B6 /* StationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C350D932645ED97009892B6 /* StationCell.xib */; };
 		1C350D972645EE65009892B6 /* StationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C350D962645EE65009892B6 /* StationCell.swift */; };
 		1C4A1B7E264715E60067CAC3 /* RadioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A1B7D264715E60067CAC3 /* RadioPlayerViewController.swift */; };
+		1C4A1B812647DD280067CAC3 /* UIImageView+UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4A1B802647DD280067CAC3 /* UIImageView+UrlImage.swift */; };
 		1CB6A23026448B340044D405 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CB6A22F26448B340044D405 /* TagCell.xib */; };
 		1CB6A23326448C0B0044D405 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6A23226448C0B0044D405 /* TagCell.swift */; };
 		1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDC62DF264467BE00045886 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		1C350D932645ED97009892B6 /* StationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCell.xib; sourceTree = "<group>"; };
 		1C350D962645EE65009892B6 /* StationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCell.swift; sourceTree = "<group>"; };
 		1C4A1B7D264715E60067CAC3 /* RadioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayerViewController.swift; sourceTree = "<group>"; };
+		1C4A1B802647DD280067CAC3 /* UIImageView+UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+UrlImage.swift"; sourceTree = "<group>"; };
 		1CB6A22F26448B340044D405 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		1CB6A23226448C0B0044D405 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		1CDC62DC264467BE00045886 /* RadioStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadioStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 		1CDC62F52644681300045886 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1C4A1B802647DD280067CAC3 /* UIImageView+UrlImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				1C350D972645EE65009892B6 /* StationCell.swift in Sources */,
 				1CDC62E4264467BE00045886 /* TagsViewController.swift in Sources */,
 				1CDC62E0264467BE00045886 /* AppDelegate.swift in Sources */,
+				1C4A1B812647DD280067CAC3 /* UIImageView+UrlImage.swift in Sources */,
 				1C4A1B7E264715E60067CAC3 /* RadioPlayerViewController.swift in Sources */,
 				1C23D1D326453B3E0028A5F9 /* RadioAPI.swift in Sources */,
 				1CDC62E2264467BE00045886 /* SceneDelegate.swift in Sources */,
