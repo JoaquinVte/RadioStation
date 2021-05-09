@@ -28,12 +28,16 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-        niStations.title = tagSelected?.name ?? "desconocido"
-        
-        RadioAPI.getStationsByTag(tagName: niStations.title!, onComplete: fillStations)
+        if(tagSelected != nil){
+            niStations.title = tagSelected?.name ?? "desconocido"
+            
+            RadioAPI.getStationsByTag(tagName: niStations.title!, onComplete: fillStations)
+        } else {
+            niStations.prompt = "Favoritos"
+        }
         
         tableViewStations.register(UINib(nibName: "StationCell", bundle:nil), forCellReuseIdentifier:"StationCell")
         

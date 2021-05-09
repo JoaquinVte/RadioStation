@@ -13,6 +13,9 @@ class TagsViewController: UITableViewController {
     var tempTags : [Tag] = []
     var tagSelected : Tag? = nil
     
+    @IBOutlet weak var barButtonFavourites: UIBarButtonItem!
+    
+    
     func fillTags(tags : [Tag])->Void {
         for tag in tags {
             tempTags.append(tag)
@@ -43,6 +46,12 @@ class TagsViewController: UITableViewController {
         
     }
     
+    @IBAction func barButtonFavourtiePressed(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "showFavourites", sender: self)
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -52,8 +61,14 @@ class TagsViewController: UITableViewController {
         if segue.identifier == "showStationsForTag"{
             let svc = segue.destination as! StationsViewController
             svc.tagSelected = tagSelected
+        } else if segue.identifier == "showFavourites" {
+            let svc = segue.destination as! StationsViewController
+            
+            svc.tempStations = DirbleAPI.fetchFavouriteStations()!
+            
         }
     }
+    
 }
 
 

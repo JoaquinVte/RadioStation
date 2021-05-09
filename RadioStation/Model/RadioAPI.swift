@@ -56,4 +56,10 @@ struct Station : Decodable {
     let name: String
     let url_resolved: String
     let favicon: String
+    
+    init(from stationEntity: StationEntity){
+        self.name = stationEntity.name
+        self.url_resolved = stationEntity.streamURL
+        self.favicon = stationEntity.imageURL
+    }
 }
