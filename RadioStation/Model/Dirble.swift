@@ -20,10 +20,7 @@ enum DirbleAPI {
         var favStations : [Station]? = nil
         do {
             let records = try context.fetch(fetchRequest) as! [StationEntity]
-            favStations = records.map {
-                (station) -> Station in
-                return Station(from: station)
-            }
+            favStations = records.map {(stationEntity) -> Station in return Station(from: stationEntity)}
                 
         }catch let error {
             print(error)

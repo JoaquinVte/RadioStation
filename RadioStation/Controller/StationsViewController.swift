@@ -53,6 +53,16 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
         tableViewStations.backgroundView = imgView
     }
     
+    func changeFavouriteStations() -> Void {
+        if tagSelected == nil {
+            tempStations = DirbleAPI.fetchFavouriteStations()!
+        
+            DispatchQueue.main.async {
+                self.tableViewStations.reloadData()
+            }
+        }
+    }
+    
     
     // MARK: Table view data source
     
@@ -95,6 +105,7 @@ class StationsViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "showPlayer" , let playerVC = segue.destination as? RadioPlayerViewController {
             guard let selectedStation = sender as? Station else { return }
             playerVC.station = selectedStation
+            playerVC.stationsChangeHandler = changeFavouriteStations
         }
     }
 

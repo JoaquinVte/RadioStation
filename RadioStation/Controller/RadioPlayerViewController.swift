@@ -20,6 +20,7 @@ class RadioPlayerViewController: UIViewController {
     
     var station : Station!
     var isFavourite : FavState!
+    var stationsChangeHandler:(()->())?
     
     lazy var player: AVPlayer = {
         initAudioSession()
@@ -81,7 +82,9 @@ class RadioPlayerViewController: UIViewController {
         default :
             addToFavourites()
         }
-
+        if stationsChangeHandler != nil{
+            stationsChangeHandler!()
+        }
     }
     
     /*
